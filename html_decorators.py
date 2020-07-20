@@ -1,22 +1,25 @@
 def div(func):
-    # You have to code here!
-    pass
-
+    def wrapper(*args, **kwargs):
+        result = func(*args, **kwargs)
+        modify = "<div>" + result + "</div>"
+        return modify
+    return wrapper
 
 def article(func):
-    # You have to code here!
-    pass
-
-
+    def wrapper(*args, **kwargs):
+        result = func(*args, **kwargs)
+        return f'<article>{ result }</article>'
+    return wrapper
+    
 def p(func):
-    # You have to code here!
-    pass
-
+    def wrapper(*args, **kwargs):
+        return f'<p>{ func(*args, **kwargs) }</p>'
+    return wrapper
 
 # Here you must apply the decorators, uncomment this later
-# @div
-# @article
-# @p
+#@div
+@article
+#@p
 def saludo(nombre):
     return f'¡Hola {nombre}, ¿Cómo estás?'
 
